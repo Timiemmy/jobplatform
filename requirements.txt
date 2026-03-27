@@ -1,0 +1,36 @@
+# Core
+Django
+djangorestframework
+
+# Auth
+djangorestframework-simplejwt
+dj-rest-auth
+django-allauth
+
+# Database
+psycopg2-binary
+
+# Environment
+django-environ
+
+# Filtering & Search
+django-filter
+
+# Async
+celery
+redis
+django-redis
+
+# API Docs
+drf-spectacular
+
+# CORS
+django-cors-headers
+
+# Storage (Phase 3)
+boto3
+django-storages
+
+# Utils
+Pillow
+python-magic
