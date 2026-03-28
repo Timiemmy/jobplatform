@@ -71,7 +71,7 @@ def apply_to_job(
     try:
         job = Job.objects.select_related("owner").get(
             id=job_id,
-            status=Job.Status.PUBLISHED,
+            job_status=Job.Status.PUBLISHED,
             is_active=True,
         )
     except Job.DoesNotExist:

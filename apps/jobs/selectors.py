@@ -1,6 +1,4 @@
 """
-apps/jobs/selectors.py
-
 Read-only query logic for the jobs domain.
 
 All functions return QuerySets (not evaluated lists) so the
@@ -38,7 +36,7 @@ def get_published_jobs(
     """
     qs = (
         Job.objects
-        .filter(status=Job.Status.PUBLISHED, is_active=True)
+        .filter(job_status=Job.Status.PUBLISHED, is_active=True)
         .select_related("owner")
         .order_by("-created_at")
     )

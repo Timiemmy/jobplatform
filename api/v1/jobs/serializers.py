@@ -1,6 +1,4 @@
 """
-api/v1/jobs/serializers.py
-
 Serializers for the jobs domain.
 
 Separation of concerns:
@@ -46,7 +44,7 @@ class JobListSerializer(serializers.ModelSerializer):
             "location",
             "job_type",
             "experience_level",
-            "status",
+            "job_status",
             "salary_min",
             "salary_max",
             "salary_currency",
@@ -73,7 +71,7 @@ class JobDetailSerializer(serializers.ModelSerializer):
             "location",
             "job_type",
             "experience_level",
-            "status",
+            "job_status",
             "salary_min",
             "salary_max",
             "salary_currency",
@@ -108,7 +106,7 @@ class JobCreateSerializer(serializers.Serializer):
         choices=Job.ExperienceLevel.choices,
         default=Job.ExperienceLevel.MID,
     )
-    status = serializers.ChoiceField(
+    job_status = serializers.ChoiceField(
         choices=[
             (Job.Status.DRAFT,     "Draft"),
             (Job.Status.PUBLISHED, "Published"),
@@ -162,7 +160,7 @@ class JobUpdateSerializer(serializers.Serializer):
         choices=Job.ExperienceLevel.choices,
         required=False,
     )
-    status = serializers.ChoiceField(
+    job_status = serializers.ChoiceField(
         choices=Job.Status.choices,
         required=False,
     )

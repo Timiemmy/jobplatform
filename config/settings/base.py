@@ -46,6 +46,7 @@ THIRD_PARTY_APPS = [
     "dj_rest_auth",
     "allauth",
     "allauth.account",
+    'allauth.socialaccount',
     "dj_rest_auth.registration",
     "django_filters",
     "corsheaders",
@@ -285,6 +286,9 @@ SPECTACULAR_SETTINGS = {
     "SERVE_INCLUDE_SCHEMA": False,
     "COMPONENT_SPLIT_REQUEST": True,
     "SCHEMA_PATH_PREFIX": r"/api/v[0-9]",
+    "ENUM_NAME_OVERRIDES": {
+        "JobStatusEnum": "apps.jobs.models.Job.Status",
+    },
 }
 
 # ---------------------------------------------------------------------------

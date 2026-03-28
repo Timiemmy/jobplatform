@@ -1,6 +1,4 @@
 """
-apps/jobs/models.py
-
 Job listing model.
 
 Key decisions:
@@ -73,7 +71,7 @@ class Job(BaseModel):
         default=ExperienceLevel.MID,
         db_index=True,
     )
-    status = models.CharField(
+    job_status = models.CharField(
         max_length=20,
         choices=Status.choices,
         default=Status.PUBLISHED,
@@ -113,7 +111,7 @@ class Job(BaseModel):
         verbose_name = "Job"
         verbose_name_plural = "Jobs"
         indexes = [
-            models.Index(fields=["status", "is_active"]),
+            models.Index(fields=["job_status", "is_active"]),
             models.Index(fields=["owner", "is_active"]),
         ]
 
@@ -126,7 +124,7 @@ class Job(BaseModel):
 
     @property
     def is_published(self) -> bool:
-        return self.status == self.Status.PUBLISHED and self.is_active
+        return self.job_status == self.Status.PUBLISHED and self.is_active
 
     @property
     def has_salary_range(self) -> bool:

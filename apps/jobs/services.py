@@ -92,7 +92,7 @@ def delete_job(*, job: Job, owner: User) -> None:
         raise ForbiddenError("You can only delete jobs you have posted.")
 
     job.is_active = False
-    job.status    = Job.Status.CLOSED
+    job.job_status    = Job.Status.CLOSED
     job.save(update_fields=["is_active", "status", "updated_at"])
     logger.info("Job soft-deleted: id=%s by=%s", job.id, owner.email)
 
